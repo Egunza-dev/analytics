@@ -1,124 +1,615 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
 	<head>
-		<title>Kevin Egunza Portfolio</title>
+		<title>Kevin Egunza | Data & BI Analyst Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- FontAwesome CDN for modern icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
-	<body class="is-preload">
+	<body>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+		<!-- Hero Section -->
+		<header class="hero">
+			<div class="hero-content">
+				<div class="hero-subtitle">Welcome to my space</div>
+				<h1 class="hero-title">Kevin Egunza</h1>
+				<p class="hero-description">
+					Data Analyst | Business Intelligence Analyst | Developer
+				</p>
+				<div class="hero-buttons">
+					<a href="#projects" class="btn btn-primary">Explore Portfolio</a>
+					<a href="#about" class="btn btn-secondary">About Me</a>
+				</div>
+			</div>
+		</header>
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>KEVIN EGUNZA</h1>
-						<p><b><font size=5px>Data Analyst | Business Intelligence Analyst | Developer</font></b><br>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+		<!-- Main content wrapper -->
+		<main class="container">
+
+			<!-- About Section -->
+			<section id="about" class="section">
+				<div class="glass-card about-grid">
+					<div class="profile-img-container">
+						<img src="images/pic.jpg" alt="Kevin Egunza">
+					</div>
+					<div class="bio-content">
+						<h3>Hi there 👋</h3>
+						<p>
+							I am a highly versatile and analytical Business Information Technology specialist with certified expertise across the full data lifecycle and modern software development. I am skilled at bridging the gap between raw data, business intelligence, and technical implementation, with hands-on experience in writing automated Python ETL pipelines, querying SQL databases, and designing dashboards in Tableau and Power BI.
+						</p>
+						<ul class="bio-list">
+							<li>Query Optimization & SQL</li>
+							<li>Python ETL & Wrangling</li>
+							<li>Power BI & Tableau BI</li>
+							<li>Full-Stack Web & Mobile</li>
 						</ul>
+						<div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+							<a href="resume.pdf" class="btn btn-primary" target="_blank">
+								<i class="fa-solid fa-file-pdf" style="margin-right: 0.5rem;"></i> Download Resume
+							</a>
+                            <a href="https://public.tableau.com/app/profile/kevin2888/vizzes" class="btn btn-secondary" target="_blank">
+                                 <i class="fa-solid fa-chart-pie" style="margin-right: 0.5rem;"></i> Tableau Public
+                            </a>
+							<button class="btn btn-secondary" onclick="openCertModal()">
+								<i class="fa-solid fa-award" style="margin-right: 0.5rem;"></i> View Certifications
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dynamic Skills Dashboard -->
+				<div class="skills-dashboard">
+					<div class="section-header" style="margin-bottom: 2.5rem;">
+						<h2 class="section-title" style="font-size: 2rem;">Skill Analytics & Stack</h2>
+						<p class="section-subtitle">Click categories to explore the tool distribution</p>
+					</div>
+					<div class="dashboard-grid">
+						<div class="skills-categories">
+							<button class="skill-category-btn active" onclick="updateChart('languages')">
+								<h4>Programming & Querying</h4>
+								<p>Python, SQL, R, JavaScript</p>
+							</button>
+							<button class="skill-category-btn" onclick="updateChart('bi')">
+								<h4>BI & Visualization</h4>
+								<p>Tableau, Advanced Excel, Dashboards</p>
+							</button>
+							<button class="skill-category-btn" onclick="updateChart('modeling')">
+								<h4>Predictive Modeling</h4>
+								<p>Regression, Classification, Time Series</p>
+							</button>
+						</div>
+						<div class="chart-display">
+							<!-- Interactive SVG Chart -->
+							<svg class="chart-svg" viewBox="0 0 400 220" id="skillsChart">
+								<!-- Chart content dynamically updated by JavaScript -->
+							</svg>
+							<div class="chart-tooltip" id="chartTooltip">Hover over bars to see proficiency</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Projects Section -->
+			<section id="projects" class="section">
+				<div class="section-header">
+					<h2 class="section-title">Portfolio Projects</h2>
+					<p class="section-subtitle">A curated showcase of Udacity-certified Data Analytics and Predictive Analytics works.</p>
+				</div>
+
+				<!-- Navigation Tab Filters -->
+				<div class="tabs-container">
+					<button class="tab-btn active" onclick="filterProjects('all', this)">All Projects</button>
+					<button class="tab-btn" onclick="filterProjects('analytics', this)">Data Analytics</button>
+					<button class="tab-btn" onclick="filterProjects('predictive', this)">Predictive Analytics</button>
+				</div>
+
+				<!-- Project Grid -->
+				<div class="project-grid">
+					
+					<!-- PROJECT 1 -->
+					<div class="glass-card project-card" data-category="analytics">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-analytics">Data Analytics</span>
+								<span class="badge">SQL</span>
+								<span class="badge">Deforestation</span>
+							</div>
+							<h3>SQL Case Study:<br>Deforestation Exploration</h3>
+							<p>Performed global forest area analysis using basic and advanced SQL queries to identify region-level trends and find regions experiencing the most significant forest loss.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/sql.pdf" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-file-invoice"></i> Project Submission
+							</a>
+							<a href="reviews/sql_review.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
 					</div>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Draw Insights From Data</a>
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">About Me</a></li>
-							<li><a href="projects2.html">Data Analytics Projects</a></li>
-							<li><a href="projects.html">Predictive Analytics Projects</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/kevin-egunza/" class="icon brands fa-linkedin"><span class="label">Instagram</span></a></li>
-							<li><a href="https://github.com/Egunza-dev" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Featured Post -->
-						<div style="overflow: auto;">
-							<span class="image left">
-							<img src="images/pic.jpg" width="360" height="350"></span>
-							<article  class="post featured" style="float: right;">
-
-								<center>
-								<h2>
-									Hi there 👋
-								</h2>
-								<h4>I am a Data Analyst | Business Intelligence Analyst who :</h4></center>
-								<ul >
-								<li>💪 loves to solve complex problems in diverse domains</li>
-								<li>🌍 is currently working as a freelance Data Analyst</li>
-								<li>🔥 handled challenging tasks in Data Analytics and Predictive Analytics</li>
-								<li>⚡ plays with all kinds of data structures - text, image, graph, numerical etc</li>
-								<li>☀️ at the end of the day, aims to <b>draw insights from data</b></li>
-								</ul>
-							</article>
-						  </div>
-
-
-						
-						<!-- Footer -->
-							<footer>
-								
-							</footer>
-
+					<!-- PROJECT 2 -->
+					<div class="glass-card project-card" data-category="analytics">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-analytics">Data Analytics</span>
+								<span class="badge">Python</span>
+								<span class="badge">Pandas</span>
+								<span class="badge">NumPy</span>
+							</div>
+							<h3>Investigating FBI Gun Dataset</h3>
+							<p>Completed the full data analytics pipeline on FBI Gun Data using NumPy and Pandas to reveal correlation factors and hidden trends across different states.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/investigate-a-dataset.html" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-code"></i> Project Submission
+							</a>
+							<a href="reviews/investigate_review.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>Umoja, Nasra Estate<br />
-								Nairobi, Kenya</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p>+254 797 673 847</p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p>egunza.onlinework@gmail.com</p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/kevin-egunza/" class="icon brands fa-linkedin"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/Egunza-dev" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Kevin Egunza | Draw Insights From Data</li></ul>
+					<!-- PROJECT 3 -->
+					<div class="glass-card project-card" data-category="analytics">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-analytics">Data Analytics</span>
+								<span class="badge">Python</span>
+								<span class="badge">Wrangling</span>
+								<span class="badge">API</span>
+							</div>
+							<h3>Wrangling and Analyzing Data</h3>
+							<p>Gathered data from diverse sources (Twitter API, web scrapes), performed deep programmatic quality assessment, and systematically cleaned and visualized insights.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/wrangle_act.html" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-code"></i> Project Submission
+							</a>
+							<a href="reviews/wrangle_act_review.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
 					</div>
+
+					<!-- PROJECT 4 -->
+					<div class="glass-card project-card" data-category="analytics">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-analytics">Data Analytics</span>
+								<span class="badge">Python</span>
+								<span class="badge">Visualization</span>
+								<span class="badge">Storytelling</span>
+							</div>
+							<h3>Communicate Data Findings</h3>
+							<p>Applied rigorous visual encoding principles to build polished exploration templates and slide decks to pitch key business metrics and data discoveries.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/Part_I_exploration_template .html" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-chart-line"></i> Exploration Template
+							</a>
+							<a href="reviews/Part_II_slide_deck_template.slides.html" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-presentation-screen"></i> View Slide Deck
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 5 -->
+					<div class="glass-card project-card" data-category="analytics">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-analytics">Data Analytics</span>
+								<span class="badge">Tableau</span>
+								<span class="badge">Dashboard</span>
+							</div>
+							<h3>Tableau: Asylum Seekers Visualizer</h3>
+							<p>Designed an interactive, comprehensive dashboard tracking global asylum seeker routes and metrics using Tableau story mapping tools.</p>
+						</div>
+						<div class="project-actions">
+							<a href="https://public.tableau.com/app/profile/kevin2888/viz/asylum_seekers_2016/Story1" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-up-right-from-square"></i> Open Tableau Dashboard
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 6 -->
+					<div class="glass-card project-card" data-category="analytics">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-analytics">Data Analytics</span>
+								<span class="badge">Tableau</span>
+								<span class="badge">Dashboard</span>
+							</div>
+							<h3>Tableau: World Cup Data Insights</h3>
+							<p>Used Tableau's grouped styling, calculated metrics, and filters to analyze and present World Cup history stats dynamically.</p>
+						</div>
+						<div class="project-actions">
+							<a href="https://public.tableau.com/app/profile/kevin2888/viz/world_cup_data_16676584935620/Dashboard1" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-up-right-from-square"></i> Open Tableau Dashboard
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 7 -->
+					<div class="glass-card project-card" data-category="predictive">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-predictive">Predictive Analytics</span>
+								<span class="badge">Linear Regression</span>
+								<span class="badge">Alteryx</span>
+							</div>
+							<h3>Predicted Sales for Catalog Launch</h3>
+							<p>Built a robust linear regression model inside a business problem-solving framework to predict catalog launch conversions and net profit margins.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/p1.pdf" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-file-invoice"></i> Project Submission
+							</a>
+							<a href="reviews/review1.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 8 -->
+					<div class="glass-card project-card" data-category="predictive">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-predictive">Predictive Analytics</span>
+								<span class="badge">Data Preparation</span>
+								<span class="badge">Store Selection</span>
+							</div>
+							<h3>Created an Analytical Data-set</h3>
+							<p>Aggregated and wrangled multiple messy datasets to create a clean store evaluation pipeline, selecting the optimum location for a pet store chain.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/p2.pdf" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-file-invoice"></i> Project Submission
+							</a>
+							<a href="reviews/review2.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 9 -->
+					<div class="glass-card project-card" data-category="predictive">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-predictive">Predictive Analytics</span>
+								<span class="badge">Classification</span>
+								<span class="badge">Risk Modeling</span>
+							</div>
+							<h3>Predicted Loan Default Risk</h3>
+							<p>Engineered and deployed a classification model (Logistic Regression, Decision Trees, Forest models) to screen bank loan defaults and risk profile applicants.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/p3.pdf" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-file-invoice"></i> Project Submission
+							</a>
+							<a href="reviews/review3.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 10 -->
+					<div class="glass-card project-card" data-category="predictive">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-predictive">Predictive Analytics</span>
+								<span class="badge">A/B Testing</span>
+								<span class="badge">Statistical Power</span>
+							</div>
+							<h3>A/B Tested a Menu Launch</h3>
+							<p>Analyzed menu test variables and customer transactions using A/B significance analysis to deliver recommendations for coffee shop launches.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/p4.pdf" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-file-invoice"></i> Project Submission
+							</a>
+							<a href="reviews/review4.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 11 -->
+					<div class="glass-card project-card" data-category="predictive">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-predictive">Predictive Analytics</span>
+								<span class="badge">Time Series</span>
+								<span class="badge">Forecasting</span>
+							</div>
+							<h3>Forecasted Video Game Demand</h3>
+							<p>Applied ETS and ARIMA seasonal models to forecast monthly demand patterns and match supply logistics for video game publishers.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/p5.pdf" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-file-invoice"></i> Project Submission
+							</a>
+							<a href="reviews/p5.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
+					</div>
+
+					<!-- PROJECT 12 -->
+					<div class="glass-card project-card" data-category="predictive">
+						<div class="project-body">
+							<div class="project-badge-container">
+								<span class="badge badge-predictive">Predictive Analytics</span>
+								<span class="badge">Clustering</span>
+								<span class="badge">Combined Models</span>
+							</div>
+							<h3>Combined Analytics Grocery Case Study</h3>
+							<p>Integrated Segmentation, Classification, and Time Series Forecasting to solve a multi-layered grocery network expansion problem.</p>
+						</div>
+						<div class="project-actions">
+							<a href="reviews/p6.pdf" target="_blank" class="project-btn project-btn-primary">
+								<i class="fa-solid fa-file-invoice"></i> Project Submission
+							</a>
+							<a href="reviews/review6.pdf" target="_blank" class="project-btn project-btn-secondary">
+								<i class="fa-solid fa-clipboard-check"></i> Project Review
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+
+			</section>
+
+		</main>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				
+				<!-- Contact Cards -->
+				<div class="contact-grid">
+					<div class="contact-card">
+						<i class="fa-solid fa-location-dot contact-icon"></i>
+						<h4>Location</h4>
+						<p>Nairobi, Kenya</p>
+					</div>
+					<div class="contact-card">
+						<i class="fa-solid fa-envelope contact-icon"></i>
+						<h4>Email</h4>
+						<p><a href="mailto:egunza.onlinework@gmail.com">egunza.dev@gmail.com</a></p>
+					</div>
+					<div class="contact-card">
+						<i class="fa-solid fa-phone contact-icon"></i>
+						<h4>Phone</h4>
+						<p><a href="tel:+254797673847">+254 799 009 262</a></p>
+					</div>
+				</div>
+
+				<!-- Footer Bottom -->
+				<div class="footer-bottom">
+					<div class="copyright">
+						&copy; 2026 Kevin Egunza. All Rights Reserved.
+					</div>
+					<div class="social-links">
+						<a href="https://www.linkedin.com/in/kevin-egunza/" target="_blank" class="social-link" title="LinkedIn">
+							<i class="fa-brands fa-linkedin"></i>
+						</a>
+						<a href="https://github.com/Egunza-dev" target="_blank" class="social-link" title="GitHub">
+							<i class="fa-brands fa-github"></i>
+						</a>
+					</div>
+				</div>
 
 			</div>
+		</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<!-- JavaScript for filters and SVG rendering -->
+		<script>
+			// Project filtering logic
+			function filterProjects(category, btnElement) {
+				// Update active tab styling
+				const buttons = document.querySelectorAll('.tab-btn');
+				buttons.forEach(btn => btn.classList.remove('active'));
+				btnElement.classList.add('active');
+
+				// Show/Hide project cards
+				const cards = document.querySelectorAll('.project-card');
+				cards.forEach(card => {
+					const cardCategory = card.getAttribute('data-category');
+					if (category === 'all' || cardCategory === category) {
+						card.classList.remove('hidden');
+					} else {
+						card.classList.add('hidden');
+					}
+				});
+			}
+
+			// Interactive skill chart rendering data
+			const chartData = {
+				languages: [
+					{ name: 'SQL', value: 90 },
+					{ name: 'Python', value: 85 },
+					{ name: 'R', value: 70 },
+					{ name: 'JavaScript', value: 65 }
+				],
+				bi: [
+					{ name: 'Tableau', value: 92 },
+					{ name: 'Excel (Adv)', value: 88 },
+					{ name: 'Alteryx', value: 82 },
+					{ name: 'Dashboards', value: 85 }
+				],
+				modeling: [
+					{ name: 'Regression', value: 88 },
+					{ name: 'Classification', value: 85 },
+					{ name: 'Time Series', value: 80 },
+					{ name: 'Clustering', value: 75 }
+				]
+			};
+
+			function updateChart(category) {
+				// Update active btn styling
+				const buttons = document.querySelectorAll('.skill-category-btn');
+				buttons.forEach(btn => btn.classList.remove('active'));
+				
+				// Find matching button by attribute
+				const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(category));
+				if (activeBtn) activeBtn.classList.add('active');
+
+				const svg = document.getElementById('skillsChart');
+				const tooltip = document.getElementById('chartTooltip');
+				const items = chartData[category];
+				
+				let html = '';
+				items.forEach((item, index) => {
+					const y = 25 + index * 45;
+					const barWidth = (item.value / 100) * 240;
+					
+					html += `
+						<!-- Label -->
+						<text x="20" y="${y + 15}" fill="#E5E7EB" font-family="Outfit, sans-serif" font-size="13" font-weight="600">${item.name}</text>
+						<!-- Bar Track -->
+						<rect x="130" y="${y}" width="240" height="20" rx="10" fill="#1F2937" />
+						<!-- Bar Fill -->
+						<rect class="chart-bar" x="130" y="${y}" width="${barWidth}" height="20" rx="10" fill="url(#grad-${index})" 
+							onmouseenter="showTooltip('${item.name} Proficiency: ${item.value}%')" 
+							onmouseleave="hideTooltip()" />
+						<!-- Value Text -->
+						<text x="${140 + barWidth}" y="${y + 14}" fill="#14B8A6" font-family="Outfit, sans-serif" font-size="11" font-weight="bold">${item.value}%</text>
+					`;
+				});
+
+				// Defs for gradients
+				html += `
+					<defs>
+						<linearGradient id="grad-0" x1="0%" y1="0%" x2="100%" y2="0%">
+							<stop offset="0%" stop-color="#6366F1" />
+							<stop offset="100%" stop-color="#8B5CF6" />
+						</linearGradient>
+						<linearGradient id="grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+							<stop offset="0%" stop-color="#8B5CF6" />
+							<stop offset="100%" stop-color="#EC4899" />
+						</linearGradient>
+						<linearGradient id="grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+							<stop offset="0%" stop-color="#14B8A6" />
+							<stop offset="100%" stop-color="#06B6D4" />
+						</linearGradient>
+						<linearGradient id="grad-3" x1="0%" y1="0%" x2="100%" y2="0%">
+							<stop offset="0%" stop-color="#3B82F6" />
+							<stop offset="100%" stop-color="#10B981" />
+						</linearGradient>
+					</defs>
+				`;
+
+				svg.innerHTML = html;
+			}
+
+			function showTooltip(text) {
+				const tooltip = document.getElementById('chartTooltip');
+				tooltip.innerText = text;
+				tooltip.style.opacity = '1';
+			}
+
+			function hideTooltip() {
+				const tooltip = document.getElementById('chartTooltip');
+				tooltip.style.opacity = '0';
+			}
+
+			// Initialize default chart
+			updateChart('languages');
+
+			// Certifications Modal Functions
+			function openCertModal() {
+				document.getElementById('certModal').classList.add('active');
+				document.body.style.overflow = 'hidden';
+			}
+
+			function closeCertModal() {
+				document.getElementById('certModal').classList.remove('active');
+				document.body.style.overflow = '';
+			}
+
+			function closeCertModalOutside(event) {
+				if (event.target.id === 'certModal') {
+					closeCertModal();
+				}
+			}
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					closeCertModal();
+				}
+			});
+		</script>
+
+		<!-- Certifications Modal -->
+		<div class="modal-overlay" id="certModal" onclick="closeCertModalOutside(event)">
+			<div class="glass-card modal-content" onclick="event.stopPropagation()">
+				<div class="modal-header">
+					<h3>Professional Certifications</h3>
+					<button class="modal-close" onclick="closeCertModal()">&times;</button>
+				</div>
+				<div class="modal-body">
+					
+					<div class="cert-item">
+						<div class="cert-details">
+							<span class="cert-issuer badge badge-analytics">Udacity</span>
+							<h4>Data Analyst Nanodegree Program</h4>
+							<p>Industry practitioner-reviewed credentials for data pipeline automation and analytics.</p>
+						</div>
+						<a href="assets/certificates/Udacity_Data_Analytics_Certificate.pdf" target="_blank" class="project-btn project-btn-primary">
+							<i class="fa-solid fa-eye"></i> View PDF
+						</a>
+					</div>
+
+					<div class="cert-item">
+						<div class="cert-details">
+							<span class="cert-issuer badge badge-predictive">Google</span>
+							<h4>Data Analytics Professional Certificate</h4>
+							<p>Comprehensive training in database management, R programming, and data visualizations.</p>
+						</div>
+						<a href="assets/certificates/GoogleDataAnalyticsProfessionalCertificate_Badge20260801-8-smw4gv.pdf" target="_blank" class="project-btn project-btn-primary">
+							<i class="fa-solid fa-eye"></i> View PDF
+						</a>
+					</div>
+
+					<div class="cert-item">
+						<div class="cert-details">
+							<span class="cert-issuer badge badge-predictive">Meta</span>
+							<h4>Database Engineer Professional Certificate</h4>
+							<p>Covers database architecture, design, backups, query optimization, and SQL scripting.</p>
+						</div>
+						<a href="assets/certificates/MetaDatabaseEngineerCertificate_Badge20260731-8-m238z8.pdf" target="_blank" class="project-btn project-btn-primary">
+							<i class="fa-solid fa-eye"></i> View PDF
+						</a>
+					</div>
+
+					<div class="cert-item">
+						<div class="cert-details">
+							<span class="cert-issuer badge badge-predictive">Google</span>
+							<h4>Project Management Certificate</h4>
+							<p>Agile project execution, scrum methodology, and strategic organizational alignment.</p>
+						</div>
+						<a href="assets/certificates/GoogleProjectManagementCertificatev1_Badge20260801-8-7q95kh.pdf" target="_blank" class="project-btn project-btn-primary">
+							<i class="fa-solid fa-eye"></i> View PDF
+						</a>
+					</div>
+
+					<div class="cert-item">
+						<div class="cert-details">
+							<span class="cert-issuer badge badge-predictive">Google</span>
+							<h4>AI Essentials</h4>
+							<p>Practical application of Generative AI tools, prompt engineering, and productivity workflows.</p>
+						</div>
+						<a href="assets/certificates/GoogleAIEssentialsV1_Badge20260801-8-h1w9hy.pdf" target="_blank" class="project-btn project-btn-primary">
+							<i class="fa-solid fa-eye"></i> View PDF
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
 
 	</body>
 </html>
